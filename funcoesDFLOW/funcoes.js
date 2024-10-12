@@ -1,4 +1,4 @@
-import Servico from "../models/Servico.js";
+import Servico from "../models/Servico.js"
 
 export function criarMessengerCard() {
   return {
@@ -11,7 +11,7 @@ export function criarMessengerCard() {
       },
     },
     actionLink: "",
-  };
+  }
 } //fim da função criarMessengerCard
 
 export function criarCustomCard() {
@@ -28,33 +28,32 @@ export function criarCustomCard() {
         },
       ],
     },
-  };
+  }
 } // fim da função criarCustomCard
 
 export async function obterCardsServicos(tipoCard = "custom") {
-  const listaCardsServicos = [];
-  const servicoModel = new Servico();
-  const servicos = await servicoModel.consultar();
+  const listaCardsServicos = []
+  const servicoModel = new Servico()
+  const servicos = await servicoModel.consultar()
 
   for (const servico of servicos) {
-    let card;
+    let card
     if (tipoCard == "custom") {
-      card = criarCustomCard();
-      card.card.title = servico.titulo;
-      card.card.subtitle = servico.descricao;
-      card.card.imageUri = servico.urlImagem;
+      card = criarCustomCard()
+      card.card.title = servico.titulo
+      card.card.subtitle = servico.descricao
+      card.card.imageUri = servico.urlImagem
       card.card.buttons[0].postback =
-        "https://www.usechronic.com.br/?gad_source=1&gclid=Cj0KCQjwurS3BhCGARIsADdUH5323xIDu3fS0uWjdWM0fopdgw0aVdI0q2X9WTsJjnovKgKT7paKl_saAkoDEALw_wcB";
+        "https://www.getninjas.com.br/assistencia-tecnica"
     } else {
-      card = criarMessengerCard();
-      card.title = servico.titulo;
-      card.subtitle = servico.descricao;
-      card.image.src.rawUrl = servico.urlImagem;
-      card.actionLink =
-        "https://www.usechronic.com.br/?gad_source=1&gclid=Cj0KCQjwurS3BhCGARIsADdUH5323xIDu3fS0uWjdWM0fopdgw0aVdI0q2X9WTsJjnovKgKT7paKl_saAkoDEALw_wcB";
+      card = criarMessengerCard()
+      card.title = servico.titulo
+      card.subtitle = servico.descricao
+      card.image.src.rawUrl = servico.urlImagem
+      card.actionLink = "https://www.getninjas.com.br/assistencia-tecnica"
     }
-    listaCardsServicos.push(card);
+    listaCardsServicos.push(card)
   }
 
-  return listaCardsServicos;
+  return listaCardsServicos
 }

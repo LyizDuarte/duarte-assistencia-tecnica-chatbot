@@ -1,16 +1,16 @@
 //conexão com o mysql
-import mysql from "mysql2/promise";
+import mysql from "mysql2/promise"
 
 export default async function conectar() {
   //boas práticas para gerenciar conexões com o banco de dados
   if (global.poolConexoes) {
-    return await global.poolConexoes.getConnection();
+    return await global.poolConexoes.getConnection()
   } else {
     const pool = await mysql.createPool({
       host: "localhost",
       port: 3306,
       user: "root",
-      database: "outlet",
+      database: "assistencia",
       password: "13012003",
       waitForConnections: true,
       connectionLimit: 10,
@@ -19,9 +19,9 @@ export default async function conectar() {
       queueLimit: 0,
       enableKeepAlive: true,
       keepAliveInitialDelay: 0,
-    });
+    })
 
-    global.poolConexoes = pool;
-    return await global.poolConexoes.getConnection();
+    global.poolConexoes = pool
+    return await global.poolConexoes.getConnection()
   }
 }

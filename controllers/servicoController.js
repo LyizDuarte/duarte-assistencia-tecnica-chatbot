@@ -8,14 +8,16 @@ export default class ServicoController {
       const dados = req.body;
       const titulo = dados.titulo;
       const descricao = dados.descricao;
+      const prazo = dados.prazo;
       const valorServico = dados.valorServico;
       const urlImagem = dados.urlImagem;
 
-      if (titulo && descricao && valorServico > 0 && urlImagem) {
+      if (titulo && descricao && prazo && valorServico > 0 && urlImagem) {
         const servico = new Servico(
           0,
           titulo,
           descricao,
+          prazo,
           valorServico,
           urlImagem
         );
@@ -52,6 +54,7 @@ export default class ServicoController {
       const codigo = dados.codigo;
       const titulo = dados.titulo;
       const descricao = dados.descricao;
+      const prazo = dados.prazo;
       const valorServico = dados.valorServico;
       const urlImagem = dados.urlImagem;
 
@@ -60,6 +63,7 @@ export default class ServicoController {
         codigo > 0 &&
         titulo &&
         descricao &&
+        prazo &&
         valorServico > 0 &&
         urlImagem 
       ) {
@@ -67,6 +71,7 @@ export default class ServicoController {
           codigo,
           titulo,
           descricao,
+          prazo,
           valorServico,
           urlImagem
         );

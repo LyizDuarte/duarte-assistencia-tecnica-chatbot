@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Duarte Assistência Técnica</title>
+    <style>
+      body {
+        background-color: #ffffff;
+      }
+      df-messenger {
+        --df-messenger-bot-message: #0e1260;
+        --df-messenger-button-titlebar-color: #000000;
+        --df-messenger-chat-background-color: #2e2525;
+        --df-messenger-font-color: white;
+        --df-messenger-send-icon: #420808;
+        --df-messenger-user-message: #000000;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Seja muito bem vindo a Duarte Assistencia Técnica!</h1>
+    <h2>Experimente o nosso chatbot!</h2>
+  </body>
+  <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+  <df-messenger
+    intent="WELCOME"
+    chat-title="DuarteAssistenciaTecnica"
+    agent-id="48a73067-cffa-401f-ae66-b73713c0d75e"
+    language-code="pt-br"
+  ></df-messenger>
+</html>
