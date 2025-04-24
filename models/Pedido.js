@@ -64,7 +64,7 @@ export default class Pedido {
   get valorTotal() {
     let valorTotal = 0
     for (const item of this.#itensPedido) {
-      valorTotal += Number(item.servico.valorServico)
+      valorTotal += Number(item.quantidade) * Number(item.servico.valorServico)
     }
     return valorTotal
   }
